@@ -1,5 +1,5 @@
 <h1>
-  Course #<%= course.id %> details
+  Course #<%= @course.id %> details
 </h1>
 
 <div>
@@ -22,7 +22,7 @@
       Title
     </label>
 
-    <input type="text" id="title_box" name="query_title">
+    <input type="text" id="title_box" name="query_title" value="<%= @course.title %>">
   </div>
 
   <div>
@@ -65,7 +65,7 @@
     Title
   </dt>
   <dd>
-    <%= course.title %>
+    <%= @course.title %>
   </dd>
 
   <dt>
@@ -87,7 +87,7 @@
     Number of enrolled students
   </dt>
   <dd>
-    <%= enrollment.where({ :course_id => @course.id }) %>
+    <%= Enrollment.where({ :course_id => @course.id }).count %>
   </dd>
 </dl>
 
